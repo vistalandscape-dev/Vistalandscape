@@ -1,179 +1,320 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras - Paquetes de Teléfono</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        h1, h2 {
-            text-align: center;
-            color: #4CAF50;
-        }
-        .product, .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .product span, .cart-item span {
-            font-size: 18px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .cart-item button {
-            background-color: #f44336;
-        }
-        .cart-item button:hover {
-            background-color: #e53935;
-        }
-        .total {
-            text-align: right;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .summary {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #555;
-        }
-        @media (max-width: 600px) {
-            .product, .cart-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            button {
-                width: 100%;
-                margin-top: 10px;
-            }
-        }
-    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Vista Landscape</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
-<body>
 
-<h1>Carrito de Compras - Paquetes de Teléfono</h1>
-
-<div class="product">
-    <span>Bait - $100 por 15 días</span>
-    <button onclick="addToCart('Bait', 30)">Precio: $30</button>
-</div>
-<div class="product">
-    <span>Telcel - $50 por 7 días</span>
-    <button onclick="addToCart('Telcel', 20)">Precio: $20</button>
-</div>
-<div class="product">
-    <span>Telcel - $100 por 15 días</span>
-    <button onclick="addToCart('Telcel', 50)">Precio: $50</button>
-</div>
-<div class="product">
-    <span>Telcel - $300 por 30 días</span>
-    <button onclick="addToCart('Telcel', 90)">Precio: $90</button>
-</div>
-<div class="product">
-    <span>Unefon - $100 por 15 días</span>
-    <button onclick="addToCart('Unefon', 30)">Precio: $30</button>
-</div>
-<div class="product">
-    <span>Movistar - $100 por 14 días</span>
-    <button onclick="addToCart('Movistar', 30)">Precio: $30</button>
-</div>
-<div class="product">
-    <span>AT&T - $100 por 14 días</span>
-    <button onclick="addToCart('AT&T', 30)">Precio: $30</button>
-</div>
-
-<h2>Tu Carrito</h2>
-<div id="cart"></div>
-<div class="total" id="totalPrice">Total: $<span>0</span></div>
-<div class="summary" id="cartSummary"></div>
-
-<script>
-    let cart = [];
-    let totalPrice = 0;
-
-    function addToCart(product, price) {
-        cart.push({ product, price });
-        totalPrice += price;
-        displayCart();
-    }
-
-    function displayCart() {
-        let cartDiv = document.getElementById("cart");
-        cartDiv.innerHTML = cart.map((item, index) => `
-            <div class="cart-item">
-                <span>${item.product}</span>
-                <span>$${item.price}</span>
-                <button onclick="removeFromCart(${index})">Eliminar</button>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">Vista Landscape</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                </ul>
             </div>
-        `).join('');
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Bienvenidos</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5"></p>
+                    <a class="btn btn-primary btn-xl" href="#services">Conocenos</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        let discountedPrice = applyDiscount();
-        document.getElementById("totalPrice").innerHTML = `Total: $<span>${discountedPrice}</span>`;
-        updateSummary();
-    }
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0">Nuestros Servicios</h2>
+            <hr class="divider" />
+            <div class="row gx-4 gx-lg-5">
 
-    function removeFromCart(index) {
-        totalPrice -= cart[index].price;
-        cart.splice(index, 1);
-        displayCart();
-    }
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-bricks fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Concreto y Muros</h3>
+                        <p class="text-muted mb-0">Concreto personalizado, muros de contención, bloques y ladrillos resistentes.</p>
+                    </div>
+                </div>
 
-    function applyDiscount() {
-        const discountThreshold = 9999;
-        const discountRate = 0.5;
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-tree fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Áreas Verdes</h3>
+                        <p class="text-muted mb-0">Instalación de césped natural, césped artificial y sistemas de riego.</p>
+                    </div>
+                </div>
 
-        if (cart.length >= discountThreshold) {
-            return (totalPrice * (1 - discountRate)).toFixed(2);
-        }
-        return totalPrice.toFixed(2);
-    }
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-water fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Agua & Piscinas</h3>
+                        <p class="text-muted mb-0">Cascadas decorativas, remodelación de piscinas y sistemas de rociadores.</p>
+                    </div>
+                </div>
 
-    function updateSummary() {
-        const summaryDiv = document.getElementById("cartSummary");
-        const productCount = {};
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><i class="bi-house-door fs-1 text-primary"></i></div>
+                        <h3 class="h4 mb-2">Estructuras y Más</h3>
+                        <p class="text-muted mb-0">Cubiertas de patio, cercas, portones de hierro, chimeneas y barbacoas.</p>
+                    </div>
+                </div>
 
-        // Contar la cantidad de cada producto
-        cart.forEach(item => {
-            if (productCount[item.product]) {
-                productCount[item.product]++;
-            } else {
-                productCount[item.product] = 1;
-            }
-        });
+            </div>
+        </div>
+    </section>
 
-        // Construir el resumen
-        let summaryText = 'Resumen: ';
-        for (let product in productCount) {
-            summaryText += `${productCount[product]} x ${product}, `;
-        }
+    <!-- About-->
+    <section class="page-section bg-primary" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mt-0">Presupuestos sin costo y proyectos a tu medida</h2>
+                    <hr class="divider divider-light" />
+                    <p class="text-white-75 mb-4">
+                        Realizamos trabajos en concreto, áreas verdes, muros de contención, cercas, portones, patios, piscinas y mucho más. Nos enfocamos en calidad, personalización y soluciones prácticas para cada espacio.
+                    </p>
+                    <a class="btn btn-light btn-xl" href="#portafolio">Nuestro portafolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Quitar la última coma y espacio
-        summaryText = summaryText.slice(0, -2);
+    <!-- Portfolio-->
+    <div id="portfolio">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <!-- Imagen 1 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Category</div>
+                            <div class="project-name">Project Name</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 2 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="chimeneas">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Estructura</div>
+                            <div class="project-name">chimeneas</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 3 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Project Name">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Category</div>
+                            <div class="project-name">Project Name</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 4 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Category</div>
+                            <div class="project-name">Project Name</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 5 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Category</div>
+                            <div class="project-name">Project Name</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 6 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
+                        <div class="portfolio-box-caption p-3">
+                            <div class="project-category text-white-50">Category</div>
+                            <div class="project-name">Project Name</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 7 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/7.jpg" title="Piscinas">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/7.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Remodelación</div>
+                            <div class="project-name">Piscinas</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 8 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/8.jpg" title="Project Name">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/8.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Category</div>
+                            <div class="project-name">Project Name</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Imagen 9 -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/9.jpg" title="Cesped">
+                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/9.jpg" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Instalación</div>
+                            <div class="project-name">Cesped</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        summaryDiv.innerHTML = summaryText || 'El carrito está vacío';
-    }
-</script>
 
+    <!-- Call to action-->
+    <section class="page-section bg-dark text-white">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mb-4">Solicita tu presupuesto sin costo</h2>
+            <a class="btn btn-light btn-xl" href="#contact">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6 text-center">
+                    <h2 class="mt-0">Ponte en contacto con nosotros</h2>
+                    <hr class="divider" />
+                    <p class="text-muted mb-5">¿Listo para tu presupuesto gratuito? Envíanos un mensaje y te responderemos lo antes posible.</p>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                <div class="col-lg-6">
+                    <!-- Contact Form -->
+                    <form action="https://formsubmit.co/vistalandscapeoficial@gmail.com" method="POST">
+                        <!-- Ocultos -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+
+                        <!-- Nombre -->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="name" placeholder="Tu nombre" required>
+                            <label>Nombre completo</label>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="email" name="email" placeholder="correo@ejemplo.com" required>
+                            <label>Email</label>
+                        </div>
+                        <!-- Teléfono -->
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="tel" name="phone" placeholder="(123) 456-7890" required>
+                            <label>Teléfono</label>
+                        </div>
+                        <!-- Mensaje -->
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" name="message" placeholder="Escribe tu mensaje..." style="height: 10rem" required></textarea>
+                            <label>Mensaje</label>
+                        </div>
+                        <!-- Botón -->
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-xl" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                    <a href="https://wa.me/2093294020" target="_blank" class="btn btn-success btn-xl d-flex align-items-center justify-content-center gap-2">
+                        <i class="bi-whatsapp fs-2"></i> Escríbenos por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">Copyright &copy; 2025 - Vista Landscape</div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
+
 </html>
