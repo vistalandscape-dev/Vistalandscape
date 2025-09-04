@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vistalandscape-dev.github.io/Vistalandscape/sitemap.xml
